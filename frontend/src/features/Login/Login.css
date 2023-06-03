@@ -1,0 +1,182 @@
+#email, #password {
+  font-family: 'inter-ui-regular', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  padding: 4px 10px;
+  border: 0px;
+  border-radius: 4px;
+  box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px inset;
+  background: rgba(242, 241, 238, 0.6);
+  cursor: text;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+#email:focus, #password:focus {
+  outline-color: #B2D3F3;
+  outline-width: thick;
+}
+
+#email::placeholder, #password::placeholder {
+  color: rgba(55, 53, 47, 0.4);
+  user-select: none;
+}
+
+.continue-with-logo {
+  margin: 0 6px 2px 0;
+}
+
+.separator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+  height: 42px;
+  flex: 0 0 auto;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  visibility: visible;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.16);
+}
+
+.session-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.session-form-container {
+  margin-top: 12vh;
+  margin-bottom: 16vh;
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.session-form-container > h1 {
+  font-size: 50px;
+  margin-bottom: 24px;
+  font-family: "inter-ui-bold", sans-serif;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 320px;
+}
+
+.session-form > label {
+  font-size: 12px;
+  font-family: "inter-ui-regular", sans-serif;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.form-button {
+  font-family: "inter-ui-medium";
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  width: 100%;
+  border: 0px;
+}
+
+.continue {
+  color: rgb(235, 87, 87);
+  background: rgb(253, 245, 242);
+  line-height: 1;
+  box-shadow: rgb(15 15 15 / 10%) 0px 1px 2px, rgb(235 87 87 / 30%) 0px 0px 0px 1px inset;
+  font-weight: 500;
+}
+
+.submit {
+  background: rgb(255, 254, 252);
+  line-height: 1.2;
+  border: 1px solid rgba(55, 53, 47, 0.16);
+  font-weight: 400;
+}
+
+.signup-submit {
+  margin-bottom: 0;
+}
+
+.continue-with {
+  background: white;
+  line-height: 1.2;
+  border: 1px solid rgba(55, 53, 47, 0.16);
+  box-shadow: rgb(15 15 15 / 5%) 0px 1px 2px;
+  font-weight: 400;
+}
+
+.form-continue-button:active {
+  background: rgba(55, 53, 47, 0.16);
+}
+
+.error {
+  font-family: "inter-ui-regular", sans-serif;
+  color: rgb(235, 87, 87);
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.disclaimer-text {
+  max-width: 500px;
+  margin-top: 64px;
+  margin-bottom: 0px;
+  font-size: 12px;
+  color: rgba(55, 53, 47, 0.5);
+  text-align: center;
+}
+
+.scribble-link {
+  color: inherit;
+  user-select: none;
+  cursor: pointer;
+}
+
+.google {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.apple {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: .3;
+  pointer-events: all;
+}
