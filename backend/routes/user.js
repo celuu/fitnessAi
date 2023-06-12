@@ -9,7 +9,7 @@ const {
 } = require("../controllers/userController");
 
 //find user route
-router.post("/finduser", findUser);
+router.post("/findusers", findUser);
 
 //login route
 router.post("/login", loginUser);
