@@ -4,6 +4,11 @@ const bcrypt = require("bcrypt");
 const validator = require("validator");
 
 const userSchema = new Schema({
+  id: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: () => new mongoose.Types.ObjectId(),
+    alias: "_id",
+  },
   email: {
     type: String,
     required: true,
