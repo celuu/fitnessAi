@@ -1,38 +1,13 @@
 const Workout = require('../models/workoutModel')
 const mongoose = require('mongoose')
 
-// get all workouts
-const getWorkouts = async (req, res) => {
-  const workouts = await Workout.find({}).sort({createdAt: -1})
-
-  res.status(200).json(workouts)
-}
-
-// get a single workout
-const getWorkout = async (req, res) => {
-  const { id } = req.params
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such workout'})
-  }
-
-  const workout = await Workout.findById(id)
-
-  if (!workout) {
-    return res.status(404).json({error: 'No such workout'})
-  }
-  
-  res.status(200).json(workout)
-}
-
-
 // create new workout
 const createWorkout = async (req, res) => {
-  const {title, load, reps} = req.body
+  const {muscle_group, load, reps} = req.body
 
   let emptyFields = []
 
-  if(!title) {
+  if(!muscle_group) {
     emptyFields.push('title')
   }
   if(!load) {
@@ -47,7 +22,7 @@ const createWorkout = async (req, res) => {
 
   // add doc to db
   try {
-    const workout = await Workout.create({title, load, reps})
+    const workout = await Workout.create({ muscle_group, load, reps });
     res.status(200).json(workout)
   } catch (error) {
     res.status(400).json({error: error.message})
@@ -92,8 +67,6 @@ const updateWorkout = async (req, res) => {
 
 
 module.exports = {
-  getWorkouts,
-  getWorkout,
   createWorkout,
   deleteWorkout,
   updateWorkout
