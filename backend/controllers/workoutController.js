@@ -1,6 +1,8 @@
 const Workout = require('../models/workoutModel')
 const mongoose = require('mongoose')
 
+// get all workouts
+
 // create new workout
 const createWorkout = async (req, res) => {
   const {muscle_group, load, reps} = req.body
@@ -68,6 +70,8 @@ const updateWorkout = async (req, res) => {
 
 module.exports = {
   createWorkout,
+  getWorkouts,
+  getWorkout,
   deleteWorkout,
-  updateWorkout
-}
+  updateWorkout,
+};

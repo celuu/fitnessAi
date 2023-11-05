@@ -6,7 +6,7 @@ const {
   findUser,
   loginUser,
   signupUser,
-} = require("../controllers/userController");
+} = require("../../controllers/userController");
 
 //find user route
 router.post("/finduser", findUser);

@@ -5,7 +5,7 @@ const {
   getExercise,
   deleteExercise,
   updateExercise,
-} = require("../controllers/exerciseController");
+} = require("../../controllers/exerciseController");
 
 const router = express.Router();
 
