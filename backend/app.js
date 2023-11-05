@@ -2,7 +2,13 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const workoutRoutes = require("./routes/workouts");
+require("./models/User");
+require("./config/passport");
+const userRoutes = require("./routes/api/users");
+const passport = require("passport");
+app.use(passport.initialize());
+
+
 
 // express app
 const app = express();
@@ -16,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use("/api/workouts", workoutRoutes);
+app.use("/api/users", userRoutes);
 
 // connect to db
 mongoose
