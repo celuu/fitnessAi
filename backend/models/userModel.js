@@ -3,22 +3,25 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const validator = require("validator");
 
-const userSchema = new Schema({
-  id: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-    alias: "_id",
+const userSchema = Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    hashedPassword: {
+      type: String,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 //static login method
 userSchema.statics.login = async function (email, password) {
