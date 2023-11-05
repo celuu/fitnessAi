@@ -4,16 +4,21 @@ const Schema = mongoose.Schema
 
 const workoutSchema = new Schema(
   {
-    muscle_group: {
-      type: Number,
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      default: () => new mongoose.Types.ObjectId(),
+      alias: "_id",
+    },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    date: {
+      type: Date,
       required: true,
     },
-    reps: {
-      type: Number,
-      required: true,
-    },
-    load: {
-      type: Number,
+    duration: {
+      type: String,
       required: true,
     },
   },
