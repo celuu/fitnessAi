@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const workoutSchema = new Schema(
+const workoutSessionSchema = new Schema(
   {
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ const workoutSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Workout', workoutSchema)
+module.exports = mongoose.model('WorkoutSession', workoutSessionSchema)

@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const singleWorkoutSchema = new Schema({
+const workoutStepSchema = new Schema({
   workout_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Workout",
+    ref: "WorkoutSession",
     required: true,
   },
   exercise_id: {
@@ -27,4 +27,4 @@ const singleWorkoutSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Single Workout", singleWorkoutSchema);
+module.exports = mongoose.model("WorkoutStep", workoutStepSchema);
