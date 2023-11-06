@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 require("./models/User");
 require("./models/WorkoutSession");
 require("./models/Exercise");
+require("./models/WorkoutStep");
 require("./config/passport");
 const userRoutes = require("./routes/api/users");
 const workoutRoutes = require("./routes/api/workoutSession");
 const exerciseRoutes = require("./routes/api/exercise");
+const workoutStepRoutes = require("./routes/api/workoutStep");
 const passport = require("passport");
 
 // express app
@@ -27,6 +29,7 @@ app.use((req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/workoutSession", workoutRoutes);
 app.use("/api/exercises", exerciseRoutes);
+app.use("/api/workoutStep", workoutStepRoutes);
 
 // connect to db
 mongoose
