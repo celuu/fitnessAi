@@ -2,9 +2,29 @@ const Workout = require('../models/Workout')
 const mongoose = require('mongoose')
 
 // get all workouts
-const getWorkout = async (req, res) => {
-  const {muscle_group, load, reps} = req.body
+const getWorkouts = async (req, res) => {
+    try {
+      const workouts = await Workout.find()
+        .populate("user_id", "_id", "date", "duration")
+        .sort({ createdAt: -1 });
+      return res.json(workouts);
+    } catch (err) {
+      return res.json([]);
+    }
 }
+
+// get workout by id
+const getWorkout = async (req, res) => {
+  try {
+    const workoutId = req.params.workoutId;
+    const workout = await Workout.findById(workoutId)
+      .populate("user_id", "_id", "date", "duration")
+      .sort({ createdAt: -1 });
+    return res.json(workout);
+  } catch (err) {
+    return res.json([]);
+  }
+};
 
 // create new workout
 const createWorkout = async (req, res) => {
