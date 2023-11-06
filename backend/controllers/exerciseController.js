@@ -1,8 +1,26 @@
-const Workout = require("../models/Workout");
+const Exercise = require("../models/Workout");
 const mongoose = require("mongoose");
 
-// get exercise
+// get exercises
+const getExercises = async (req, res) => {
+  try {
+    const exercises = await Exercise.find();
+    return res.json(exercises)
+  } catch(err) {
+    return res.json([])
+  }
+}
 
+//get single exercise
+const getExercise = async(req, res) => {
+  const {id} = params.id
+  try {
+    const exercise = await Exercise.findById({_id: id})
+    return res.json(exercise)
+  } catch(err) {
+    return res.json([])
+  }
+}
 
 // create new exercise
 const createExercise = async (req, res) => {
@@ -74,8 +92,8 @@ const updateExercise = async (req, res) => {
 };
 
 module.exports = {
-  getExercise,
   getExercises,
+  getExercise,
   createExercise,
   deleteExercise,
   updateExercise,
