@@ -6,7 +6,7 @@ require("./models/User");
 require("./config/passport");
 const userRoutes = require("./routes/api/users");
 const passport = require("passport");
-app.use(passport.initialize());
+
 
 
 
@@ -15,6 +15,7 @@ const app = express();
 
 // middleware
 app.use(express.json());
+app.use(passport.initialize());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
