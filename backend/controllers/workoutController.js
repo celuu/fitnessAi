@@ -5,8 +5,6 @@ const mongoose = require('mongoose')
 const getWorkouts = async (req, res) => {
     try {
       const workouts = await Workout.find()
-        .populate("user_id", "_id", "date", "duration")
-        .sort({ createdAt: -1 });
       return res.json(workouts);
     } catch (err) {
       return res.json([]);
@@ -15,14 +13,16 @@ const getWorkouts = async (req, res) => {
 
 // get workout by id
 const getWorkout = async (req, res) => {
+  const { id } = req.params;
   try {
-    const workoutId = req.params.workoutId;
-    const workout = await Workout.findById(workoutId)
-      .populate("user_id", "_id", "date", "duration")
-      .sort({ createdAt: -1 });
-    return res.json(workout);
+    const workout = await Workout.findById({ _id: id });
+    if (workout) {
+      return res.json(workout);
+    } else {
+      return res.status(404).json({ message: "Workout not found" });
+    }
   } catch (err) {
-    return res.json([]);
+    return res.status(500).json({ message: "An error occurred" });
   }
 };
 
@@ -63,6 +63,7 @@ const deleteWorkout = async (req, res) => {
   }
 
   const workout = await Workout.findOneAndDelete({_id: id})
+  console.log('work', workout)
 
   if (!workout) {
     return res.status(400).json({error: 'No such workout'})
