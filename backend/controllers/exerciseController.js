@@ -1,4 +1,4 @@
-const Exercise = require("../models/Workout");
+const Exercise = require("../models/Exercise");
 const mongoose = require("mongoose");
 
 // get exercises
@@ -13,7 +13,7 @@ const getExercises = async (req, res) => {
 
 //get single exercise
 const getExercise = async(req, res) => {
-  const {id} = params.id
+  const {id} = req.params
   try {
     const exercise = await Exercise.findById({_id: id})
     return res.json(exercise)
@@ -66,8 +66,8 @@ const deleteExercise = async (req, res) => {
     return res.status(400).json({ error: "No such exercise" });
   }
 
-  res.status(200).json(workout);
-};
+  res.status(200).json(exercise);
+}; 
 
 // update an exercise
 const updateExercise = async (req, res) => {

@@ -7,17 +7,15 @@ const bcrypt = require("bcryptjs");
 const { faker } = require("@faker-js/faker");
 const Exercise = require("../models/Exercise.js");
 
-const fakeExercise = {
-  name: faker.lorem.words(2), // Generates a random two-word name
-  description: faker.lorem.sentence(), // Generates a random sentence
-  muscle_group: faker.random.arrayElement([
-    "Chest",
-    "Back",
-    "Legs",
-    "Arms",
-    "Shoulders",
-  ]), // Random muscle group
-};
+
+// const muscleGroups = ["Chest", "Back", "Legs", "Arms", "Shoulders"];
+// const randomMuscleGroup =
+//   muscleGroups[Math.floor(Math.random() * muscleGroups.length)];
+// const fakeExercise = {
+//   name: faker.lorem.words(2), // Generates a random two-word name
+//   description: faker.lorem.sentence(), // Generates a random sentence
+//   muscle_group: randomMuscleGroup, // Random muscle group
+// };
 
 
 
