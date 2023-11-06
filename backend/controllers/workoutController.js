@@ -2,6 +2,9 @@ const Workout = require('../models/workoutModel')
 const mongoose = require('mongoose')
 
 // get all workouts
+const getWorkout = async (req, res) => {
+  const {muscle_group, load, reps} = req.body
+}
 
 // create new workout
 const createWorkout = async (req, res) => {
