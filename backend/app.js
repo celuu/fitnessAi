@@ -3,11 +3,11 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 require("./models/User");
-require("./models/Workout");
+require("./models/WorkoutSession");
 require("./models/Exercise");
 require("./config/passport");
 const userRoutes = require("./routes/api/users");
-const workoutRoutes = require("./routes/api/workouts");
+const workoutRoutes = require("./routes/api/workoutSession");
 const exerciseRoutes = require("./routes/api/exercise");
 const passport = require("passport");
 
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/users", userRoutes);
-app.use("/api/workouts", workoutRoutes);
+app.use("/api/workoutSession", workoutRoutes);
 app.use("/api/exercises", exerciseRoutes);
 
 // connect to db

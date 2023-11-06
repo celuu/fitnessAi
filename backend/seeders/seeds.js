@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { mongoURI: db } = require("../config/keys.js");
 
-const Workout = require("../models/Workout");
+const Workout = require("../models/WorkoutSession.js");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const { faker } = require("@faker-js/faker");
