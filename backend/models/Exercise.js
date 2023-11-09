@@ -16,5 +16,13 @@ const exerciseSchema = new Schema({
     },
   }
 );
-
+// muscle_groups 
+// 'Back',
+  // 'Triceps',
+  // 'Chest',
+  // 'Abs',
+  // 'Biceps',
+  // 'Legs',
+  // 'Shoulders',
+  // 'Forearm'
 module.exports = mongoose.model("Exercise", exerciseSchema);
