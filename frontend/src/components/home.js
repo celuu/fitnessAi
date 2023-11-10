@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import Navigation from "./NavigationBar";
+import WithSubnavigation from "./NavigationBar";
 const home = () => {
-    <> hello
-      <Navigation />
+    <> 
+      <WithSubnavigation />
     </>;
 
 
