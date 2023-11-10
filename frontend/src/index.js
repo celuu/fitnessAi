@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider } from "./context/AuthContext";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from '../src/theme/colors'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </AuthContextProvider>

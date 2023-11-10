@@ -85,27 +85,7 @@ const Login = () => {
             <div className="error">{error || findUserError}</div>
           )}
         </form>
-        <div className="disclaimer-text">
-          <p>
-            By clicking “Continue with Apple/Google/Email” above, you
-            acknowledge that you have read and understood, and agree to
-            Scribble's{" "}
-            <a
-              className="scribble-link"
-              href="https://www.notion.so/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac#33378f25e4084c96bb32bbae0cd074c5"
-            >
-              Terms & Conditions
-            </a>{" "}
-            and{" "}
-            <a
-              className="scribble-link"
-              href="https://www.notion.so/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091"
-            >
-              Privacy Policy
-            </a>
-            .
-          </p>
-        </div>
+
       </div>
     </div>
   );
