@@ -29,9 +29,9 @@ const Login = () => {
     else handleFindUser(e);
   };
 
-  // if (user) {
-  //   return <Navigate to='/' replace/>
-  // }
+  if (user) {
+    return <Navigate to='/' replace/>
+  }
   
   return (
     <div className="session-page">

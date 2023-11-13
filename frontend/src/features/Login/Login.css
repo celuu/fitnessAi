@@ -5,7 +5,7 @@
   border: 0px;
   border-radius: 4px;
   box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px inset;
-  background: rgba(242, 241, 238, 0.6);
+  /* background: rgba(242, 241, 238, 0.6); */
   cursor: text;
   margin-top: 4px;
   margin-bottom: 8px;
@@ -85,7 +85,7 @@
 
 .form-button {
   user-select: none;
-  transition: background 20ms ease-in 0s;
+  /* transition: background 20ms ease-in 0s; */
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -111,7 +111,7 @@
 }
 
 .submit {
-  background: rgb(255, 254, 252);
+  /* background: rgb(255, 254, 252); */
   line-height: 1.2;
   border: 1px solid rgba(55, 53, 47, 0.16);
   font-weight: 400;
@@ -122,7 +122,7 @@
 }
 
 .continue-with {
-  background: white;
+  /* background: white; */
   line-height: 1.2;
   border: 1px solid #B4FFDF;
   box-shadow: rgb(15 15 15 / 5%) 0px 1px 2px;
@@ -130,7 +130,7 @@
 }
 
 .form-continue-button:active {
-  background: rgba(55, 53, 47, 0.16);
+  /* background: rgba(55, 53, 47, 0.16); */
 }
 
 .error {
@@ -140,20 +140,6 @@
   text-align: center;
 }
 
-.disclaimer-text {
-  max-width: 500px;
-  margin-top: 64px;
-  margin-bottom: 0px;
-  font-size: 12px;
-  color: rgba(55, 53, 47, 0.5);
-  text-align: center;
-}
-
-.scribble-link {
-  color: inherit;
-  user-select: none;
-  cursor: pointer;
-}
 
 .google {
   margin-top: 0;
