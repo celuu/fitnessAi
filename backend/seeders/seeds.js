@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 const { mongoURI: db } = require("../config/keys.js");
 const Exercise = require("../models/Exercise.js");
 
@@ -8,7 +9,8 @@ const seedExercises = [
     description:
       "Unlike most other movements, the higher the weight you select for this movement, the easier it is to do. Some gyms have bars instead of pads. If your gym has a bar, place your feet on it instead.",
     muscle_group: "Back",
-  },
+  }
+  ,
   {
     name: "Assisted Dip",
     description:
@@ -1836,15 +1838,28 @@ const seedExercises = [
   },
 ];
 
-async function seedWorkouts() {
-  try {
-    await Exercise.create(seedExercises)
-    console.log("Seed data inserted successfully");
-  } catch (error) {
-    console.error("Error seeding data:", error);
-  } finally {
-    mongoose.connection.close();
-  }
-}
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("Connected to MongoDB successfully");
+    insertSeeds();
+  })
+  .catch((err) => {
+    console.error(err.stack);
+    process.exit(1);
+  });
 
-seedWorkouts();
+const insertSeeds = () => {
+  console.log("Resetting db and seeding users and spots...");
+  Exercise.collection
+    .drop()
+    .then(() => Exercise.insertMany(seedExercises))
+    .then(() => {
+      console.log("done!");
+      mongoose.disconnect();
+    })
+    .catch((err) => {
+      console.error(err.stack);
+      process.exit(1);
+    });
+};
