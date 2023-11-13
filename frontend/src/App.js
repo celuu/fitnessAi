@@ -9,10 +9,10 @@ import Home from './components/home';
 
 function App() {
   return (
-    <Box bg={'black'}>
+    <Box>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/home' element={<Home />}></Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
