@@ -3,8 +3,8 @@ import { useLogin } from "../../hooks/useLogin";
 import { useFindUser } from "../../hooks/useFindUser";
 import { Spinner } from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
-import "./Login.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import WithSubnavigation from "../../components/NavigationBar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,6 +35,7 @@ const Login = () => {
   
   return (
     <div className="session-page">
+      <WithSubnavigation />
       <div className="session-form-container">
         <h1>Log in</h1>
         <form className="session-form" onSubmit={handleFormSubmit}>

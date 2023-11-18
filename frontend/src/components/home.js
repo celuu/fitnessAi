@@ -1,10 +1,16 @@
 import { Box } from "@chakra-ui/react";
 import WithSubnavigation from "./NavigationBar";
+
+
 const home = () => {
-    <Box > 
-      hello
+  return(
+        <Box > 
       <WithSubnavigation />
-    </Box>;
+    
+    </Box>
+
+  )
+
 
 
 }

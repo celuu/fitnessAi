@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSignup } from "../../hooks/useSignup";
-import "../Login/Login.css";
 import { Spinner } from "@chakra-ui/spinner";
+import { Flex, Heading } from "@chakra-ui/react";
 import { useLocation } from "react-router";
+import WithSubnavigation from "../../components/NavigationBar";
 
 const Signup = () => {
   const location = useLocation();
@@ -20,9 +21,10 @@ const Signup = () => {
   // }, [location.state.email]);
 
   return (
-    <div className="session-page">
-      <div className="session-form-container">
-        <h1>Sign up</h1>
+    <>
+      <WithSubnavigation />
+      <Flex direction={"column"}>
+        <Heading>Sign up</Heading>
         <form className="session-form" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input
@@ -53,8 +55,8 @@ const Signup = () => {
           </div>
         </form>
         
-      </div>
-    </div>
+      </Flex>
+    </>
   );
 };
 
