@@ -15,7 +15,11 @@ const Home = () => {
   return (
     <>
       <WithSubnavigation />
-      <Button>Click ME</Button>
+      <Box>
+        {data.map((item) => {
+          <Heading>item.</Heading>
+        })}
+      </Box>
     </>
   );
 
