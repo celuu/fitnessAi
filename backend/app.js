@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const cors = require("cors")
 const express = require("express");
 const mongoose = require("mongoose");
 require("./models/User");
@@ -17,6 +17,7 @@ const passport = require("passport");
 const app = express();
 
 // middleware
+app.use(cors())
 app.use(express.json());
 app.use(passport.initialize());
 

@@ -9,8 +9,8 @@ const Home = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-      setData(fetchExercises());
-    }, []);
+    setData(fetchExercises());
+  }, []);
 
   return (
     <>
