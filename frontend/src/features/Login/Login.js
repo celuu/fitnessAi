@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useFindUser } from "../../hooks/useFindUser";
-import { Spinner } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  FormErrorMessage,
+  Button,
+  Spinner,
+} from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import WithSubnavigation from "../../components/NavigationBar";
@@ -34,61 +44,36 @@ const Login = () => {
   }
   
   return (
-    <div className="session-page">
+    <>
       <WithSubnavigation />
-      <div className="session-form-container">
-        <h1>Log in</h1>
-        <form className="session-form" onSubmit={handleFormSubmit}>
-          <div className="separator-container">
-            <div role="separator" className="separator"></div>
-          </div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="search"
-            id="email"
-            placeholder="Enter your email address..."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {foundUser && (
-            <>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password..."
-                autoFocus
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </>
-          )}
-          {!foundUser ? (
-            <button
-              className="form-button continue"
-              disabled={!!isUserLoading}
-              onClick={handleFindUser}
-            >
-              {isUserLoading && <Spinner size="xs" sx={{ mr: "5px" }} />}
-              Continue with email
-            </button>
-          ) : (
-            <button
-              className="form-button submit"
-              disabled={!!isLoading}
-              onClick={handleSubmit}
-            >
-              {isLoading && <Spinner size="xs" sx={{ mr: "5px" }} />}Continue
-              with password
-            </button>
-          )}
-          {(error || findUserError) && (
-            <div className="error">{error || findUserError}</div>
-          )}
-        </form>
+      <Heading>Log in</Heading>
 
-      </div>
-    </div>
+      <FormControl isInvalid={error}>
+        <FormLabel>Email</FormLabel>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        {error && <FormErrorMessage>Email is required.</FormErrorMessage>}
+        <FormLabel>Password</FormLabel>
+        <Input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <FormErrorMessage>Password is required.</FormErrorMessage>}
+
+        <Button
+          disabled={!!isLoading}
+          className="form-button submit signup-submit"
+          onClick={handleSubmit}
+        >
+          {isLoading && <Spinner size="xs" sx={{ mr: "5px" }} />}Continue with
+          password
+        </Button>
+      </FormControl>
+    </>
   );
 };
 

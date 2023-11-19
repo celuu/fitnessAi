@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { Spinner } from "@chakra-ui/spinner";
-import { Flex, Heading } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  FormErrorMessage,
+  Button,
+} from "@chakra-ui/react";
 import { useLocation } from "react-router";
 import WithSubnavigation from "../../components/NavigationBar";
 
@@ -10,6 +19,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignup();
+  const isError = email === error;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,36 +35,33 @@ const Signup = () => {
       <WithSubnavigation />
       <Flex direction={"column"}>
         <Heading>Sign up</Heading>
-        <form className="session-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="search"
-            id="email"
-            placeholder="Enter your email address..."
+        <FormControl isInvalid={isError}>
+          <FormLabel>Email</FormLabel>
+          <Input
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="password">Password</label>
-          <input
+          {isError && <FormErrorMessage>Email is required.</FormErrorMessage>}
+          <FormLabel>Password</FormLabel>
+          <Input
             type="password"
-            id="password"
-            placeholder="Enter your password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
+          {isError && (
+            <FormErrorMessage>Password is required.</FormErrorMessage>
+          )}
+
+          <Button
             disabled={!!isLoading}
             className="form-button submit signup-submit"
+            onClick={handleSubmit}
           >
             {isLoading && <Spinner size="xs" sx={{ mr: "5px" }} />}Continue with
             password
-          </button>
-          {error && <div className="error">{error}</div>}
-          <div className="separator-container">
-            <div role="separator" className="separator"></div>
-          </div>
-        </form>
-        
+          </Button>
+        </FormControl>
       </Flex>
     </>
   );
