@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export const useFindUser = () => {
-  const [foundUser, setFoundUser] = useState(null);
-  const [isUserLoading, setIsUserLoading] = useState(null);
-  const [findUserError, setFindUserError] = useState(null);
+  const [foundUser, setFoundUser] = useState(false);
+  const [isUserLoading, setIsUserLoading] = useState(false);
+  const [findUserError, setFindUserError] = useState(false);
   const navigate = useNavigate();
 
   const findUser = async (email) => {

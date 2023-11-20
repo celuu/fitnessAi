@@ -1,5 +1,4 @@
-'use client'
-
+import React from "react";
 import {
   Box,
   Flex,
@@ -15,7 +14,8 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
+
 import {
   HamburgerIcon,
   CloseIcon,
@@ -179,9 +179,9 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-      {NAV_ITEMS.map((navItem) => (
+      {/* {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
-      ))}
+      ))} */}
     </Stack>
   )
 }
