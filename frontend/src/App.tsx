@@ -7,7 +7,7 @@ import Signup from "./features/Signup/Signup";
 import { Box } from '@chakra-ui/react';
 import Home from './components/home';
 
-function App() {
+const App = () => {
   return (
     <Box>
       <BrowserRouter>
